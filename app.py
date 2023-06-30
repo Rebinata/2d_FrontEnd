@@ -5,7 +5,7 @@ URL_API = "http://127.0.0.1:8000/predict?"
 
 
 # # Effectuer une requête API et afficher la réponse
-# st.title("Welcome to Sarcasm Analysis")
+st.title("Welcome to Sarcasm Analysis")
 
 CSS = """
 h1 {
@@ -51,14 +51,14 @@ st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
 
 
 
-# with st.sidebar.expander("USER GUIDE"):
-#     st.write("Contenu du panneau déroulant 1")
+with st.sidebar.expander("USER GUIDE"):
+    st.write("Contenu du panneau déroulant 1")
 
-# with st.sidebar.expander("WHAT IS SARCASM"):
-#     st.write("Sarcasm is a form of sharp or mocking irony that aims to ridicule or criticize something or someone. It is a way of expressing oneself in a caustic or satirical manner, often with a humorous intention, but also to convey contempt, indignation, or disdain. Sarcasm is typically characterized by the use of remarks or replies that say the opposite of what one actually thinks, but in an obvious and provocative way, in order to convey a critical or sarcastic message.")
+with st.sidebar.expander("WHAT IS SARCASM"):
+    st.write("Sarcasm is a form of sharp or mocking irony that aims to ridicule or criticize something or someone. It is a way of expressing oneself in a caustic or satirical manner, often with a humorous intention, but also to convey contempt, indignation, or disdain. Sarcasm is typically characterized by the use of remarks or replies that say the opposite of what one actually thinks, but in an obvious and provocative way, in order to convey a critical or sarcastic message.")
 
-# with st.sidebar.expander("THE MOST USEFUL TAB ON THIS PAGE"):
-#     st.write("You've got it, it's sarcarsm!!!!")
+with st.sidebar.expander("THE MOST USEFUL TAB ON THIS PAGE"):
+    st.write("You've got it, it's sarcarsm!!!!")
 
 
 
