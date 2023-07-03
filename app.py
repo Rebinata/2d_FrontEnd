@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-URL_API = "http://127.0.0.1:8000/predict?"
+URL_API = "https://sarcasme-uwd4nnxq3a-ew.a.run.app/predict?"
 
 
 # # Effectuer une requête API et afficher la réponse
@@ -41,7 +41,8 @@ if st.button('Sarcasm or NOT'):
         data = response.json()
         # Utilisez 'data' pour faire quelque chose d'utile ici
         # result = data["sentence"] # Assurez-vous que votre API renvoie un 'result' dans la réponse
-        if data < 0.5:
+        print(data)
+        if data < 0.1:
             st.image('https://i.kym-cdn.com/entries/icons/original/000/035/497/Walter.jpg', caption='SERIOUS', width=300)
         else:
             st.image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQppCDrdgehIjzHPQ5Zw_YRgh6MtwBIiErO0w&usqp=CAU', caption='SARCASM', width=300)
