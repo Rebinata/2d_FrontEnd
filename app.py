@@ -6,8 +6,19 @@ import base64
 URL_API = "https://sarcasme-uwd4nnxq3a-ew.a.run.app/predict?"
 
 def home_page():
-    # # Effectuer une requête API et afficher la réponse
-    st.title("Welcome to Sarcasm Analysis")
+    st.markdown(
+    """
+    <style>
+    .header-text {
+        color: #000000;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+    # Affichage de l'en-tête avec la classe CSS personnalisée
+    st.markdown('<h1 class="header-text">Welcome to Sarcasm Analysis\U0001F916</h1>', unsafe_allow_html=True)
 
 
     def add_bg_from_local(image_file):
@@ -32,7 +43,7 @@ def home_page():
 
 
     with st.sidebar.expander("USER GUIDE"):
-            st.write("Contenu du panneau déroulant 1")
+            st.write("You and I both know that politicians always tell the truth and are always serious in their statements. With this application, you will finally have the opportunity to prove it to yourself. For that, all you need to do is enter a sentence, press the button, and at your own risk, discover the truth.")
 
     with st.sidebar.expander("WHAT IS SARCASM"):
             st.write("Sarcasm is a form of sharp or mocking irony that aims to ridicule or criticize something or someone. It is a way of expressing oneself in a caustic or satirical manner, often with a humorous intention, but also to convey contempt, indignation, or disdain. Sarcasm is typically characterized by the use of remarks or replies that say the opposite of what one actually thinks, but in an obvious and provocative way, in order to convey a critical or sarcastic message.")
@@ -43,7 +54,7 @@ def home_page():
 
         # Obtenez l'entrée de l'utilisateur à partir de la boîte de saisie de texte
     user_input = st.text_input("Enter your sentence")
-    if st.button('Sarcasm or NOT'):
+    if st.button('Is it Sarcastic? 🙄'):
             # Utilisez l'entrée de l'utilisateur dans votre appel API
             response = requests.get(URL_API, params={"sentence": user_input})
             if response.status_code == 200:
@@ -62,7 +73,8 @@ def home_page():
             st.write('')
 
 def other_page():
-    st.title("Welcome to the most epic sarcasm comptetion")
+    st.header("Welcome to the most epic\
+    sarcasm comptetion \U0001F525 ")
     sarcasm_text = """Oh, wow! A sarcasm competition. How utterly thrilling and enthralling.
 I can hardly contain my excitement. Sarcasm is, after all, the pinnacle of sophisticated humor.
 I'm absolutely dying to participate in such a prestigious event. My heart is racing with anticipation.
@@ -73,7 +85,7 @@ Oh, what a marvelous occasion this is. Truly, a dream come true."""
 
     CSS = """
         h1 {
-            color: #c1c1c1;
+            color: #ffffff 	;
         }
         .stApp {
             background-image: url(https://images.theconversation.com/files/374303/original/file-20201210-18-elk4m.jpg?ixlib=rb-1.1.0&rect=0%2C22%2C7500%2C5591&q=45&auto=format&w=926&fit=clip);
@@ -81,9 +93,14 @@ Oh, what a marvelous occasion this is. Truly, a dream come true."""
         }
         """
     st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
-    st.title("The Game")
+    st.header("The Game \U0001F47E")
     with st.sidebar.expander("USER GUIDE"):
-            st.write("Contenu du panneau déroulant 1")
+            st.write("""Player 1 enters a sentence, and then Player 2 takes their turn to enter a sentence.
+                        After that, you need to press the 'OK' button.""")
+            st.write("""Please note that the first loading may take some time, but since you're here, it seems like you don't have much else to do.
+                        The winner will be displayed below the two blocks of text.
+                        """)
+
     # Créer deux colonnes côte à côte
 
     #Créer deux colonnes côte à côte
@@ -96,11 +113,11 @@ Oh, what a marvelous occasion this is. Truly, a dream come true."""
 
     # Champ de saisie de texte pour la première colonne
     with col1:
-        phrase_1 = st.text_area("PLAYER 1", height=3)
+        phrase_1 = st.text_area("PLAYER 1 \U0001FAC0", height=3)
 
     # Champ de saisie de texte pour la deuxième colonne
     with col2:
-        phrase_2 = st.text_area("PLAYER 2", height=3)
+        phrase_2 = st.text_area("PLAYER 2 \U0001F9E0", height=3)
 
     # Vérifier si les deux phrases ont été saisies et si le bouton "OK" a été cliqué
     if phrase_1 and phrase_2 and st.button("PLAY"):
@@ -118,33 +135,22 @@ Oh, what a marvelous occasion this is. Truly, a dream come true."""
 
         # Mettre à jour le score en fonction des scores renvoyés par l'API
         if data_1 > data_2:
-            st.write('Player 1 Won')
-            # st.write(data_1)
-            # st.write(data_2)
-
-            # Centrer l'image horizontalement
-            st.markdown(
-                """
-                <style>
-                .stApp {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-                </style>
-                """,
-                unsafe_allow_html=True
-            )
-
-            # Affichage de l'image centrée
-            st.image('https://us.v-cdn.net/cdn-cgi/image/fit=scale-down,width=1600/http://i.qkme.me/3ogxbr.jpg', width=300)
+            col_1, col_2 ,col_3=st.columns(3)
+            with col_2:
+                st.title('Player 1 ')
+                # st.write(data_1)
+                # st.write(data_2)
+            st.image("https://us.v-cdn.net/cdn-cgi/image/fit=scale-down,width=1600/http://i.qkme.me/3ogxbr.jpg")
 
 
-    else:
-        st.write('Player 2 Won')
-        #st.write(data_1)
-        #st.write(data_2)
 
+        else:
+            col_1, col_2 ,col_3=st.columns(3)
+            with col_2:
+                st.header('Player 1 ')
+                # st.write(data_1)
+                # st.write(data_2)
+            st.image("https://us.v-cdn.net/cdn-cgi/image/fit=scale-down,width=1600/http://i.qkme.me/3ogxbr.jpg")
 
 
 pages = {
