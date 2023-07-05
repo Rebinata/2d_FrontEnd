@@ -2,3 +2,4 @@ pandas
 streamlit
 uvicorn
 requests
+base64

@@ -112,6 +112,7 @@ def other_page():
             st.write('Player 1 Won')
             st.write(data_1)
             st.write(data_2)
+            st.image('https://lyon.citycrunch.fr/wp-content/uploads/sites/3/2017/02/YouWin.png',  width=300)
         else:
             st.write('Player 2 Won')
             st.write(data_1)
