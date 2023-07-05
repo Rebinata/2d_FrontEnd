@@ -62,7 +62,15 @@ def home_page():
             st.write('')
 
 def other_page():
-    st.title("Welcome to Sarcasm Analysis")
+    st.title("Welcome to the most epic sarcasm comptetion")
+    sarcasm_text = """Oh, wow! A sarcasm competition. How utterly thrilling and enthralling.
+I can hardly contain my excitement. Sarcasm is, after all, the pinnacle of sophisticated humor.
+I'm absolutely dying to participate in such a prestigious event. My heart is racing with anticipation.
+Can you sense the overwhelming sarcasm in my words? It's practically dripping off the screen.
+Oh, what a marvelous occasion this is. Truly, a dream come true."""
+
+    st.write(sarcasm_text)
+
     CSS = """
         h1 {
             color: #c1c1c1;
@@ -74,7 +82,8 @@ def other_page():
         """
     st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
     st.title("The Game")
-
+    with st.sidebar.expander("USER GUIDE"):
+            st.write("Contenu du panneau déroulant 1")
     # Créer deux colonnes côte à côte
 
     #Créer deux colonnes côte à côte
@@ -87,14 +96,14 @@ def other_page():
 
     # Champ de saisie de texte pour la première colonne
     with col1:
-        phrase_1 = st.text_area("Text Input 1", height=3)
+        phrase_1 = st.text_area("PLAYER 1", height=3)
 
     # Champ de saisie de texte pour la deuxième colonne
     with col2:
-        phrase_2 = st.text_area("Text Input 2", height=3)
+        phrase_2 = st.text_area("PLAYER 2", height=3)
 
     # Vérifier si les deux phrases ont été saisies et si le bouton "OK" a été cliqué
-    if phrase_1 and phrase_2 and st.button("OK"):
+    if phrase_1 and phrase_2 and st.button("PLAY"):
         # Effectuer l'appel API pour la première phrase
         response_1 = requests.get(URL_API, params={"sentence": phrase_1})
         if response_1.status_code == 200:
@@ -110,13 +119,31 @@ def other_page():
         # Mettre à jour le score en fonction des scores renvoyés par l'API
         if data_1 > data_2:
             st.write('Player 1 Won')
-            st.write(data_1)
-            st.write(data_2)
-            st.image('https://lyon.citycrunch.fr/wp-content/uploads/sites/3/2017/02/YouWin.png',  width=300)
-        else:
-            st.write('Player 2 Won')
-            st.write(data_1)
-            st.write(data_2)
+            # st.write(data_1)
+            # st.write(data_2)
+
+            # Centrer l'image horizontalement
+            st.markdown(
+                """
+                <style>
+                .stApp {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                </style>
+                """,
+                unsafe_allow_html=True
+            )
+
+            # Affichage de l'image centrée
+            st.image('https://us.v-cdn.net/cdn-cgi/image/fit=scale-down,width=1600/http://i.qkme.me/3ogxbr.jpg', width=300)
+
+
+    else:
+        st.write('Player 2 Won')
+        #st.write(data_1)
+        #st.write(data_2)
 
 
 
