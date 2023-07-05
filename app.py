@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import random
+import base64
 
 URL_API = "https://sarcasme-uwd4nnxq3a-ew.a.run.app/predict?"
 
@@ -8,18 +9,25 @@ def home_page():
     # # Effectuer une requête API et afficher la réponse
     st.title("Welcome to Sarcasm Analysis")
 
-    CSS = """
-        h1 {
-            color: #c1c1c1;
-        }
-        .stApp {
-            background-image: url(https://images.theconversation.com/files/374303/original/file-20201210-18-elk4m.jpg?ixlib=rb-1.1.0&rect=0%2C22%2C7500%2C5591&q=45&auto=format&w=926&fit=clip);
-            background-size: cover;
-        }
-        """
+
+    def add_bg_from_local(image_file):
+        with open(image_file, "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read())
+        st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+            background-size: cover
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+        )
+    add_bg_from_local('photos/Sans-titre_3_.png')
 
         #if st.checkbox('Inject CSS'):
-    st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
+
 
 
 
