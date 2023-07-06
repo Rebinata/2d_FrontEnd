@@ -59,8 +59,11 @@ def home_page():
     user_input = st.text_area("", value="In the course of my life I have often had to eat my words, and I must confess that I have always found it a wholesome diet.", key="user_input",height=3)
     if st.button('Is it Sarcastic? 🙄'):
             # Utilisez l'entrée de l'utilisateur dans votre appel API
-            response = requests.get(URL_API, params={"sentence": user_input})
+            with st.spinner('Requeting API ...'):
+
+                response = requests.get(URL_API, params={"sentence": user_input})
             if response.status_code == 200:
+                st.balloons()
                 data = response.json()
                 # Utilisez 'data' pour faire quelque chose d'utile ici
                 # result = data["sentence"] # Assurez-vous que votre API renvoie un 'result' dans la réponse
@@ -154,11 +157,34 @@ Oh, what a marvelous occasion this is. Truly, a dream come true."""
                 # st.write(data_1)
                 # st.write(data_2)
             st.image("https://us.v-cdn.net/cdn-cgi/image/fit=scale-down,width=1600/http://i.qkme.me/3ogxbr.jpg")
+def lastpages():
+    st.title("La TEAM \U0001F680 ")
+    col1, col2, col3 = st.columns(3)
+
+    image_width = 200
+
+    with col1:
+        st.markdown("[Aminata](http://www.linkedin.com/in/aminata-traore-31b171156)")
+        st.image('photos/teammember1.png',width=250)
+        st.markdown("[LINKEDIN](https://exemple.com/image1)")
+
+    with col2:
+        st.markdown("[Afaf](http://linkedin.com/in/afaf-jaber-38887323b)")
+        st.image('photos/teammember2.png',width=image_width)
+
+
+    with col3:
+        st.markdown("[Cédric](http://linkedin.com/in/cédric-najdek-17569114b)")
+        st.image('photos/teammember3.png', width=image_width)
+
+
+
 
 
 pages = {
         "Home": home_page,
         "The Game": other_page,
+        "La Team" : lastpages,
 
     }
 
