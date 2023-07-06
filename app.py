@@ -56,7 +56,7 @@ def home_page():
     text_mixed = "<span style='color: #B31129; font-weight: bold;'>Enter your sentence</span>"
     # Afficher la phrase avec la couleur personnalisée
     st.markdown(text_mixed, unsafe_allow_html=True)
-    user_input = st.text_area("", value="", key="user_input",height=3)
+    user_input = st.text_area("", value="In the course of my life I have often had to eat my words, and I must confess that I have always found it a wholesome diet.", key="user_input",height=3)
     if st.button('Is it Sarcastic? 🙄'):
             # Utilisez l'entrée de l'utilisateur dans votre appel API
             response = requests.get(URL_API, params={"sentence": user_input})
@@ -65,7 +65,7 @@ def home_page():
                 # Utilisez 'data' pour faire quelque chose d'utile ici
                 # result = data["sentence"] # Assurez-vous que votre API renvoie un 'result' dans la réponse
                 print(data)
-                if data < 0.1:
+                if data < 0.5:
                     st.image('https://i.kym-cdn.com/entries/icons/original/000/035/497/Walter.jpg', caption='SERIOUS', width=300)
                 else:
                     st.image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQppCDrdgehIjzHPQ5Zw_YRgh6MtwBIiErO0w&usqp=CAU', caption='SARCASM', width=300)
@@ -150,7 +150,7 @@ Oh, what a marvelous occasion this is. Truly, a dream come true."""
         else:
             col_1, col_2 ,col_3=st.columns(3)
             with col_2:
-                st.header('Player 1 ')
+                st.header('Player 2 ')
                 # st.write(data_1)
                 # st.write(data_2)
             st.image("https://us.v-cdn.net/cdn-cgi/image/fit=scale-down,width=1600/http://i.qkme.me/3ogxbr.jpg")
