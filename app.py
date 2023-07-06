@@ -10,7 +10,7 @@ def home_page():
     """
     <style>
     .header-text {
-        color: #000000;
+        color: #B31129		;
     }
     </style>
     """,
@@ -53,7 +53,10 @@ def home_page():
 
 
         # Obtenez l'entrée de l'utilisateur à partir de la boîte de saisie de texte
-    user_input = st.text_input("Enter your sentence")
+    text_mixed = "<span style='color: #B31129; font-weight: bold;'>Enter your sentence</span>"
+    # Afficher la phrase avec la couleur personnalisée
+    st.markdown(text_mixed, unsafe_allow_html=True)
+    user_input = st.text_area("", value="", key="user_input",height=3)
     if st.button('Is it Sarcastic? 🙄'):
             # Utilisez l'entrée de l'utilisateur dans votre appel API
             response = requests.get(URL_API, params={"sentence": user_input})
