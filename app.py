@@ -154,11 +154,33 @@ Oh, what a marvelous occasion this is. Truly, a dream come true."""
                 # st.write(data_1)
                 # st.write(data_2)
             st.image("https://us.v-cdn.net/cdn-cgi/image/fit=scale-down,width=1600/http://i.qkme.me/3ogxbr.jpg")
+def lastpages():
+    st.title("La TEAM \U0001F680 ")
+    col1, col2, col3 = st.columns(3)
+
+    image_width = 200
+
+    with col1:
+        st.subheader("Aminata")
+        st.image('photos/teammember1.png',width=250)
+        st.caption('')
+
+    with col2:
+        st.subheader("Afaf")
+        st.image('photos/teammember2.png',width=image_width)
+        st.caption('')
+
+    with col3:
+        st.subheader("Cédric")
+        st.image('photos/teammember3.png', width=image_width)
+        st.caption('')
+
 
 
 pages = {
         "Home": home_page,
         "The Game": other_page,
+        "La Team" : lastpages,
 
     }
 
