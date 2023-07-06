@@ -59,8 +59,11 @@ def home_page():
     user_input = st.text_area("", value="In the course of my life I have often had to eat my words, and I must confess that I have always found it a wholesome diet.", key="user_input",height=3)
     if st.button('Is it Sarcastic? 🙄'):
             # Utilisez l'entrée de l'utilisateur dans votre appel API
-            response = requests.get(URL_API, params={"sentence": user_input})
+            with st.spinner('Requeting API ...'):
+
+                response = requests.get(URL_API, params={"sentence": user_input})
             if response.status_code == 200:
+                st.balloons()
                 data = response.json()
                 # Utilisez 'data' pour faire quelque chose d'utile ici
                 # result = data["sentence"] # Assurez-vous que votre API renvoie un 'result' dans la réponse
@@ -161,19 +164,20 @@ def lastpages():
     image_width = 200
 
     with col1:
-        st.subheader("Aminata")
+        st.markdown("[Aminata](http://www.linkedin.com/in/aminata-traore-31b171156)")
         st.image('photos/teammember1.png',width=250)
-        st.caption('')
+        st.markdown("[LINKEDIN](https://exemple.com/image1)")
 
     with col2:
-        st.subheader("Afaf")
+        st.markdown("[Afaf](http://linkedin.com/in/afaf-jaber-38887323b)")
         st.image('photos/teammember2.png',width=image_width)
-        st.caption('')
+
 
     with col3:
-        st.subheader("Cédric")
+        st.markdown("[Cédric](http://linkedin.com/in/cédric-najdek-17569114b)")
         st.image('photos/teammember3.png', width=image_width)
-        st.caption('')
+
+
 
 
 
