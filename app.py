@@ -35,7 +35,7 @@ def home_page():
         """,
         unsafe_allow_html=True
         )
-    add_bg_from_local('photos/Sans-titre_3_.png')
+    add_bg_from_local('photos/Sans-titre_3_-modified.png')
 
         #if st.checkbox('Inject CSS'):
 
