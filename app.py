@@ -56,7 +56,7 @@ def home_page():
     text_mixed = "<span style='color: #B31129; font-weight: bold;'>Enter your sentence</span>"
     # Afficher la phrase avec la couleur personnalisée
     st.markdown(text_mixed, unsafe_allow_html=True)
-    user_input = st.text_area("", value="", key="user_input",height=3)
+    user_input = st.text_area("", value="In the course of my life I have often had to eat my words, and I must confess that I have always found it a wholesome diet.", key="user_input",height=3)
     if st.button('Is it Sarcastic? 🙄'):
             # Utilisez l'entrée de l'utilisateur dans votre appel API
             response = requests.get(URL_API, params={"sentence": user_input})
