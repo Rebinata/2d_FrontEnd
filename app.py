@@ -141,12 +141,12 @@ Oh, what a marvelous occasion this is. Truly, a dream come true."""
 
         # Mettre à jour le score en fonction des scores renvoyés par l'API
         if data_1 > data_2:
-            col_1, col_2 ,col_3=st.columns(3)
+            col_1, col_2 ,col_3, col4=st.columns(4)
             with col_2:
                 st.title('Player 1 ')
                 # st.write(data_1)
                 # st.write(data_2)
-            st.image("https://us.v-cdn.net/cdn-cgi/image/fit=scale-down,width=1600/http://i.qkme.me/3ogxbr.jpg")
+            st.image("https://us.v-cdn.net/cdn-cgi/image/fit=scale-down,/http://i.qkme.me/3ogxbr.jpg",width=500)
 
 
 
@@ -156,25 +156,27 @@ Oh, what a marvelous occasion this is. Truly, a dream come true."""
                 st.header('Player 2 ')
                 # st.write(data_1)
                 # st.write(data_2)
-            st.image("https://us.v-cdn.net/cdn-cgi/image/fit=scale-down,width=1600/http://i.qkme.me/3ogxbr.jpg")
+            st.image("https://us.v-cdn.net/cdn-cgi/image/fit=scale-down,width=1600/http://i.qkme.me/3ogxbr.jpg",width = 500)
 def lastpages():
     st.title("La TEAM \U0001F680 ")
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3,col4 = st.columns(4)
 
     image_width = 200
 
     with col1:
         st.markdown("[Aminata](http://www.linkedin.com/in/aminata-traore-31b171156)")
         st.image('photos/teammember1.png',width=250)
-        st.markdown("[LINKEDIN](https://exemple.com/image1)")
+
 
     with col2:
+
         st.markdown("[Afaf](http://linkedin.com/in/afaf-jaber-38887323b)")
         st.image('photos/teammember2.png',width=image_width)
 
 
+
     with col3:
-        st.markdown("[Cédric](http://linkedin.com/in/cédric-najdek-17569114b)")
+        st.markdown("[Cédric](https://www.linkedin.com/in/cédric-najdek-17569114b)")
         st.image('photos/teammember3.png', width=image_width)
 
 
