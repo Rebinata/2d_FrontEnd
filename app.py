@@ -119,11 +119,11 @@ Oh, what a marvelous occasion this is. Truly, a dream come true."""
 
     # Champ de saisie de texte pour la première colonne
     with col1:
-        phrase_1 = st.text_area("PLAYER 1 \U0001FAC0", height=3)
+        phrase_1 = st.text_area("PLAYER 1 \U0001FAC0", value="If stupid could fly, you would be a jet",  height=3)
 
     # Champ de saisie de texte pour la deuxième colonne
     with col2:
-        phrase_2 = st.text_area("PLAYER 2 \U0001F9E0", height=3)
+        phrase_2 = st.text_area("PLAYER 2 \U0001F9E0", value="You are so mean that your standard deviation is zero", height=3)
 
     # Vérifier si les deux phrases ont été saisies et si le bouton "OK" a été cliqué
     if phrase_1 and phrase_2 and st.button("PLAY"):
