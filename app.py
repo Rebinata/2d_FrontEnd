@@ -80,7 +80,7 @@ def home_page():
 
 def other_page():
     st.header("Welcome to the most epic\
-    sarcasm comptetion \U0001F525 ")
+    sarcasm competetion \U0001F525 ")
     sarcasm_text = """Oh, wow! A sarcasm competition. How utterly thrilling and enthralling.
 I can hardly contain my excitement. Sarcasm is, after all, the pinnacle of sophisticated humor.
 I'm absolutely dying to participate in such a prestigious event. My heart is racing with anticipation.
