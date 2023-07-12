@@ -170,7 +170,7 @@ def lastpages():
 
     with col2:
 
-        st.markdown("[Afaf](http://linkedin.com/in/afaf-jaber-38887323b)")
+        st.markdown("[Afaf](https://www.linkedin.com/in/afafjaber/)")
         st.image('photos/teammember2.png',width=image_width)
 
 
