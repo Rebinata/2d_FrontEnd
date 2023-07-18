@@ -128,7 +128,8 @@ Oh, what a marvelous occasion this is. Truly, a dream come true."""
     # Vérifier si les deux phrases ont été saisies et si le bouton "OK" a été cliqué
     if phrase_1 and phrase_2 and st.button("PLAY"):
         # Effectuer l'appel API pour la première phrase
-        response_1 = requests.get(URL_API, params={"sentence": phrase_1})
+        with st.spinner('Requeting API ...'):
+            response_1 = requests.get(URL_API, params={"sentence": phrase_1})
         if response_1.status_code == 200:
             data_1 = response_1.json()
             #score_1 = data_1.get("score", 0)
