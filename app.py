@@ -130,12 +130,12 @@ Oh, what a marvelous occasion this is. Truly, a dream come true."""
         # Effectuer l'appel API pour la première phrase
         with st.spinner('Requeting API ...'):
             response_1 = requests.get(URL_API, params={"sentence": phrase_1})
+            response_2 = requests.get(URL_API, params={"sentence": phrase_2})
         if response_1.status_code == 200:
             data_1 = response_1.json()
             #score_1 = data_1.get("score", 0)
 
         # Effectuer l'appel API pour la deuxième phrase
-        response_2 = requests.get(URL_API, params={"sentence": phrase_2})
         if response_2.status_code == 200:
             data_2 = response_2.json()
             #score_2 = data_2.get("score", 0)
